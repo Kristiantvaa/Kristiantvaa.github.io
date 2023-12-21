@@ -63,5 +63,5 @@ resetButton.addEventListener("click", () => {
 // Initial update
 updateScore();
 
-let n = 35; //Current week
+let n = 50; //Current week
 const xValues = ["Week "+n-4, "Week "+n-3, "Week "+n-2, "Week "+n-1, "Week "+n]

@@ -3,6 +3,14 @@ body {
     text-align: center;
 }
 
+.scoring {
+    display: flex
+}
+.scoring > div{
+    width: 10%;
+}
+
+
 .score-container {
     margin-top: 0px;
 }
