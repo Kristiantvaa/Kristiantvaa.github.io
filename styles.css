@@ -1,0 +1,77 @@
+body {
+    font-family: 'TT Commons', 'Calibri';
+    text-align: center;
+}
+
+.score-container {
+    margin-top: 0px;
+}
+
+.score-text {
+    text-align: left;
+    font-size: 24px;
+    line-height: 50px;
+    padding-left: 50px;
+    position: absolute; top: 145px;
+}
+
+.progress-bar {
+    background-color: #ff0000;
+    width: 500px;
+    height: 35px;
+    border-radius: 20px;
+    position:absolute; left: 150px; top: 120px;
+}
+#progression-bar{
+    background-color: #1aff00;
+    width: 20px;
+
+}
+
+.score-buttons {
+    /* background-color: #04AA6D; Green background */
+    position: absolute; left: 180px; top:160px;
+    line-height: 75px;
+    cursor: pointer; /* Pointer/hand icon */
+    width: 13%; /*Set a width if needed*/
+    display:block; /* Make the buttons appear below each other */
+    
+  }
+
+.days-completed {
+    /* background-color: #04AA6D; Green background */
+    position: absolute; left: 290px; top: 145px;
+    line-height: 52px;
+    width: 5%; /*Set a width if needed*/
+    display: block; /* Make the buttons appear below each other */
+    font-size: 22px;
+}
+
+
+#reset-button{
+    background-color: #ff0000;
+    font-family: 'TT Commons';
+    font-size: 20px;
+    color: #ffffff;
+}
+  
+  /* Add a background color on hover */
+  .score-buttons button:hover {
+    background-color: #002ec6;
+  }
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    
+    cursor: pointer;
+    background-color: #003cff;
+    font-family: 'TT Commons';
+    font-size: 20px;
+    color: #ffffff;
+}
+
+.score-results {
+    position:fixed; top: 200px; left: 400px;
+}

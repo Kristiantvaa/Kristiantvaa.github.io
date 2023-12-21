@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Scoring System</title>
+</head>
+<body>
+    <h1>Scoring the Week</h1>
+    <h2> <span id="current-score">0</span>/100</h2>
+
+    <div class="progress-bar" id="bg-bar"> </div>
+    <div class="progress-bar" id="progression-bar"> </div>
+
+
+    <div class="score-text">
+        <p id="exercise"> Trening </p>
+        <p id="preparation"> Forberedelse </p>
+        <p id="sleep"> Søvn </p>
+        <p id="social"> Sosialt </p>
+    </div>
+    <div class="score-buttons">
+        <button id="exercise-button">+5</button>
+        <button id="preparation-button">+10</button>
+        <button id="sleep-button">+1.4</button>
+        <button id="social-button">+2.5</button>
+        
+        <button id="reset-button">Reset</button>
+    </div>
+
+    <div class="days-completed">
+        <p> <span id="exercise-progress">0</span>/6 </p>
+        <p> <span id="preparation-progress">0</span>/5 </p>
+        <p> <span id="sleep-progress">0</span>/7 </p>
+        <p> <span id="social-progress">0</span>/4 </p>
+    </div>
+
+
+    <div class="score-results">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="chart.js"></script>
+      <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+        
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
