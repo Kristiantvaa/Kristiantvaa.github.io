@@ -3,54 +3,76 @@ body {
     text-align: center;
 }
 
-.scoring {
-    display: flex
+
+/* Styles for devices with a max-width of 600 pixels (e.g., smartphones) */
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
 }
-.scoring > div{
-    width: 10%;
+
+/* Styles for devices with a min-width of 601 pixels (e.g., PCs) */
+@media only screen and (min-width: 601px) {
+    body {
+        background-color: lightgreen;
+    }
 }
 
 
-.score-container {
-    margin-top: 0px;
-}
-
-.score-text {
-    text-align: left;
-    font-size: 24px;
-    line-height: 50px;
-    padding-left: 50px;
-    position: absolute; top: 145px;
-}
+/* MÅ LÆRE LAYOUT MED CSS */
 
 .progress-bar {
     background-color: #ff0000;
     width: 500px;
     height: 35px;
     border-radius: 20px;
-    position:absolute; left: 150px; top: 120px;
+    display: flex;
+    
 }
 #progression-bar{
     background-color: #1aff00;
-    width: 20px;
+    position: relative;
+    
+    top: -35px
+    
+    
+}
+
+
+.all-scoring-text {
+    width: 100%;
+    padding: 40px;
+    position:relative;
+    display: flex;
+    align-content: center;
 
 }
 
+.score-text {
+    position: relative;
+    background-color: aqua;
+    text-align:center;
+    font-size: 24px;
+    line-height: 50px;
+    /* padding-left: 20px; */
+}
 .score-buttons {
-    /* background-color: #04AA6D; Green background */
-    position: absolute; left: 180px; top:160px;
+    position: relative;
+    padding-top: 12px;
+    background-color: #0436aa; 
     line-height: 75px;
+    min-width: 100px;
     cursor: pointer; /* Pointer/hand icon */
-    width: 13%; /*Set a width if needed*/
-    display:block; /* Make the buttons appear below each other */
+    width: 10%; /*Set a width if needed*/
     
   }
 
 .days-completed {
-    /* background-color: #04AA6D; Green background */
-    position: absolute; left: 290px; top: 145px;
+    
+    background-color: #04AA6D;     
     line-height: 52px;
     width: 5%; /*Set a width if needed*/
+    min-width: 40px;
     display: block; /* Make the buttons appear below each other */
     font-size: 22px;
 }
