@@ -75,6 +75,7 @@ scoreElement.addEventListener("input", () =>{
 });
 
 
+// TESTETETET
 
 // Reset score
 resetButton.addEventListener("click", () => {
