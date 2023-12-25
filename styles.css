@@ -1,6 +1,7 @@
 body {
     font-family: 'TT Commons', 'Calibri';
     text-align: center;
+    color: white; 
 }
 
 
@@ -14,41 +15,76 @@ body {
 /* Styles for devices with a min-width of 601 pixels (e.g., PCs) */
 @media only screen and (min-width: 601px) {
     body {
-        background-color: lightgreen;
+        background-color: rgb(77, 77, 77);
     }
 }
 
 
 /* MÅ LÆRE LAYOUT MED CSS */
+/* .scoring-week{
+    display: block;
+} */
 
-.progress-bar {
+/* .progress-bar {
     background-color: #ff0000;
     width: 500px;
     height: 35px;
     border-radius: 20px;
+    
     display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     
 }
 #progression-bar{
     background-color: #1aff00;
+    top: -35px;
+    display: flex;
     position: relative;
-    
-    top: -35px
-    
-    
+    justify-content: center;   
+} */
+
+.progress-bar-container {
+    display: flex;
+    position:relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* height: 35px; Optional: Set the height to 100% of the viewport height */
 }
 
+.progress-bar {
+    width: 500px;
+    height: 35px;
+    border-radius: 20px;
+}
+
+#bg-bar{
+    background-color: #ff0000;
+}
+
+#progression-bar {
+    background-color: #1aff00;
+    position:relative;
+    left: 0;    
+    top: -35px;
+    width: 0px;
+    }
 
 .all-scoring-text {
     width: 100%;
-    padding: 40px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     position:relative;
+
     display: flex;
-    align-content: center;
+    justify-content: center;
 
 }
 
-.score-text {
+.score-categories {
     position: relative;
     background-color: aqua;
     text-align:center;
@@ -63,12 +99,11 @@ body {
     line-height: 75px;
     min-width: 100px;
     cursor: pointer; /* Pointer/hand icon */
-    width: 10%; /*Set a width if needed*/
+    width: 4%; /*Set a width if needed*/
     
   }
 
-.days-completed {
-    
+.score-days-completed {
     background-color: #04AA6D;     
     line-height: 52px;
     width: 5%; /*Set a width if needed*/

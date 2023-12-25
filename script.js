@@ -15,7 +15,8 @@ const resetButton = document.getElementById("reset-button");
 let score = 0;
 
 let currentProgressWidth = 0;
-const maxWidthProgress = document.getElementById("bg-bar").getAttribute("width")
+const bg_bar = document.getElementById("bg-bar");
+const maxWidthProgress = parseFloat(window.getComputedStyle(bg_bar).width); 
 
 let maxExerciseDays = 6;
 let maxPreparationDays = 5;
@@ -23,44 +24,76 @@ let maxSleepDays = 7;
 let maxSocialDays = 4;
 
 
-let counterExerciseDays = 0;
-let counterPreparationDays = 0;
-let counterSleepDays = 0;
-let counterSocialDays = 0;
-
-
 // Update score display
 function updateScore() {
     scoreElement.textContent = score;
-    currentProgressWidth = score/100 * 500;
-    // currentProgress.style.width = ""+currentProgressWidth;
+    currentProgressWidth = score/100 * maxWidthProgress;
+    currentProgress.style.width = ""+currentProgressWidth+"px";
     scoreElement.dispatchEvent(new Event("input"));
 
 }
 
+// function addAllButtonsListeners(button, maxDays, increment, textField) {
+//     button.addEventListener("click", () => {
+//         let typeOfButton = button.id.split("-")[0];
+//         let progressElement = window[typeOfButton + "-progress"];
+//         let progressValue = parseInt(progressElement.textContent, 10);
 
-function addAllButtonsListeners(button, counter, maxDays, increment, textField) {
+//         console.log(window[typeOfButton + "-progress"]);
+//         if (progressValue + 1 >= maxDays) {
+//             button.style.opacity = 0.5;
+//             button.disabled = true;
+//             button.style.backgroundColor = "red";
+//         }
+
+//         score += increment;
+//         progressElement.textContent++;
+//         textField.textContent = progressElement.textContent;
+//         updateScore();
+//         console.log(window[typeOfButton + "-progress"]);
+//         console.log("CLICK:", window["exercise-progress"].textContent, window["preparation-progress"].textContent, window["sleep-progress"].textContent, window["social-progress"].textContent);
+//     });
+// }
+
+// function addAllButtonsListeners(button, counter, maxDays, increment, textField) {
+//     button.addEventListener("click", () => {
+//         if (counter+1 >= maxDays) { 
+//             button.style.opacity = 0.5
+//             button.disabled = true;
+//             button.style.backgroundColor = "red";
+//         }
+//         score += increment;
+//         counter++;
+//         // console.log(counter, textField.textContent)
+//         textField.textContent = ""+counter;
+//         updateScore();
+//         console.log("CLICK:",counter, counterExerciseDays, counterPreparationDays, counterSleepDays, counterSocialDays)
+//     });
+// }
+
+
+function addAllButtonsListeners(button, maxDays, increment) {
     button.addEventListener("click", () => {
-        if (counter+1 >= maxDays) { 
+        let typeOfButton = button.id.split("-")[0];
+        let counterID = typeOfButton+"-progress"; 
+
+        let counterField = document.getElementById(counterID).textContent;  
+        let counterNumber = parseInt(counterField);     
+
+        if (counterNumber+1 >= maxDays) { 
             button.style.opacity = 0.5
             button.disabled = true;
             button.style.backgroundColor = "red";
         }
-        score+=increment;
-        // console.log(currentProgress.getAttribute(innerWidth));
-        // currentProgressWidth = currentProgress.getAttribute("width");
-        // currentProgress.setAttribute("width") = currentProgressWidth+10
-        counter++;
-        console.log(counter, textField.textContent)
-        textField.textContent = ""+counter;
+        score += increment;
+        counterNumber++;
+        console.log(counterNumber, counterField);
+        document.getElementById(counterID).textContent = ""+counterNumber;
         updateScore();
+
+        // console.log("CLICK:",counter, counterExerciseDays, counterPreparationDays, counterSleepDays, counterSocialDays)
     });
 }
-
-addAllButtonsListeners(exerciseButton, counterExerciseDays, maxExerciseDays, 5, document.getElementById("exercise-progress"));
-addAllButtonsListeners(preparationButton, counterPreparationDays, maxPreparationDays, 10, document.getElementById("preparation-progress"));
-addAllButtonsListeners(sleepButton, counterSleepDays, maxSleepDays, 10/7, document.getElementById("sleep-progress"));
-addAllButtonsListeners(socialButton, counterSocialDays, maxSocialDays, 10/4, document.getElementById("social-progress"));
 
 
 scoreElement.addEventListener("input", () =>{
@@ -78,25 +111,28 @@ scoreElement.addEventListener("input", () =>{
 // Reset score
 resetButton.addEventListener("click", () => {
     score = 0;
-    resetButtons(exerciseButton, counterExerciseDays, document.getElementById("exercise-progress"));
-    resetButtons(preparationButton, counterPreparationDays, document.getElementById("preparation-progress"))
-    resetButtons(sleepButton, counterSleepDays, document.getElementById("sleep-progress"))
-    resetButtons(socialButton, counterSocialDays, document.getElementById("social-progress"))
+    resetButtons(exerciseButton, document.getElementById("exercise-progress"));
+    resetButtons(preparationButton, document.getElementById("preparation-progress"));
+    resetButtons(sleepButton, document.getElementById("sleep-progress"));
+    resetButtons(socialButton, document.getElementById("social-progress"));
+    // console.log(counterExerciseDays, counterPreparationDays, counterSleepDays, counterSocialDays);
     updateScore();
 });
 
-function resetButtons(button, counter, textField) {
+function resetButtons(button, textField) {
     button.disabled = false;
     button.style.opacity = 1;
     button.style.backgroundColor = "blue";
-
-    counter = 0;
+    
     textField.textContent = 0;
-    console.log(counter)
 }
+
+console.log("FØR KALL")
+addAllButtonsListeners(exerciseButton, maxExerciseDays, 5);
+addAllButtonsListeners(preparationButton, maxPreparationDays, 10);
+addAllButtonsListeners(sleepButton, maxSleepDays, 10/7);
+addAllButtonsListeners(socialButton, maxSocialDays, 10/4);
+console.log("ETTER KALL");
 
 // Initial update
 updateScore();
-
-// let n = 50; //Current week
-// const xValues = ["Week "+n-4, "Week "+n-3, "Week "+n-2, "Week "+n-1, "Week "+n]
