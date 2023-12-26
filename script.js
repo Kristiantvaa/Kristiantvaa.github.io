@@ -26,51 +26,15 @@ let maxSocialDays = 4;
 
 // Update score display
 function updateScore() {
+    if (score >= 100){
+        score = 100;
+    }
     scoreElement.textContent = score;
     currentProgressWidth = score/100 * maxWidthProgress;
     currentProgress.style.width = ""+currentProgressWidth+"px";
     scoreElement.dispatchEvent(new Event("input"));
 
 }
-
-// function addAllButtonsListeners(button, maxDays, increment, textField) {
-//     button.addEventListener("click", () => {
-//         let typeOfButton = button.id.split("-")[0];
-//         let progressElement = window[typeOfButton + "-progress"];
-//         let progressValue = parseInt(progressElement.textContent, 10);
-
-//         console.log(window[typeOfButton + "-progress"]);
-//         if (progressValue + 1 >= maxDays) {
-//             button.style.opacity = 0.5;
-//             button.disabled = true;
-//             button.style.backgroundColor = "red";
-//         }
-
-//         score += increment;
-//         progressElement.textContent++;
-//         textField.textContent = progressElement.textContent;
-//         updateScore();
-//         console.log(window[typeOfButton + "-progress"]);
-//         console.log("CLICK:", window["exercise-progress"].textContent, window["preparation-progress"].textContent, window["sleep-progress"].textContent, window["social-progress"].textContent);
-//     });
-// }
-
-// function addAllButtonsListeners(button, counter, maxDays, increment, textField) {
-//     button.addEventListener("click", () => {
-//         if (counter+1 >= maxDays) { 
-//             button.style.opacity = 0.5
-//             button.disabled = true;
-//             button.style.backgroundColor = "red";
-//         }
-//         score += increment;
-//         counter++;
-//         // console.log(counter, textField.textContent)
-//         textField.textContent = ""+counter;
-//         updateScore();
-//         console.log("CLICK:",counter, counterExerciseDays, counterPreparationDays, counterSleepDays, counterSocialDays)
-//     });
-// }
-
 
 function addAllButtonsListeners(button, maxDays, increment) {
     button.addEventListener("click", () => {

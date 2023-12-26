@@ -46,6 +46,18 @@ body {
     justify-content: center;   
 } */
 
+.tabs-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.top-tab{  
+    padding-right: 30px;
+    padding-left: 30px;
+    font-size: 20px;
+    background-color: #ff0000;
+}
+
 .progress-bar-container {
     display: flex;
     position:relative;
@@ -86,7 +98,7 @@ body {
 
 .score-categories {
     position: relative;
-    background-color: aqua;
+    /* background-color: aqua; */
     text-align:center;
     font-size: 24px;
     line-height: 50px;
@@ -95,7 +107,7 @@ body {
 .score-buttons {
     position: relative;
     padding-top: 12px;
-    background-color: #0436aa; 
+    /* background-color: #0436aa;  */
     line-height: 75px;
     min-width: 100px;
     cursor: pointer; /* Pointer/hand icon */
@@ -104,7 +116,7 @@ body {
   }
 
 .score-days-completed {
-    background-color: #04AA6D;     
+    /* background-color: #04AA6D;      */
     line-height: 52px;
     width: 5%; /*Set a width if needed*/
     min-width: 40px;
